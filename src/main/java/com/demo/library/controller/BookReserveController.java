@@ -62,9 +62,9 @@ public class BookReserveController {
         return bookReserveService.getIssueStatus(isbnCode, request);
     }
 
-    @ApiOperation(value = "Reservation history in XML", notes = "API to get reservation history by ISBN code. To get data in List pass [type='list'], by default data type is XML  ")
+    @ApiOperation(value = "Reservation history in XML", notes = "API to get reservation history by ISBN code. To get data in json format pass [type='json'], by default data type is XML  ")
     @GetMapping("/getReservationHistoryByIsbn")
-    public String getHistoryByIsbn(@RequestParam(name = "isbnCode") String isbnCode, @RequestParam(name = "type", required = false) String type) {
+    public Object getHistoryByIsbn(@RequestParam(name = "isbnCode") String isbnCode, @RequestParam(name = "type", required = false) String type) {
         return bookReserveService.getHistoryByIsbn(isbnCode, type);
     }
 

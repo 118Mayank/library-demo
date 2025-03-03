@@ -172,14 +172,14 @@ public class BookReserveService {
     }
 
 
-    public String getHistoryByIsbn(String isbnCode, String type) {
+    public Object getHistoryByIsbn(String isbnCode, String type) {
         Optional<BookDetails> bookDetails = bookDetailsRepo.findByIsbnCode(isbnCode);
-        String historyData = "";
+        Object historyData = "";
         try {
             if (bookDetails.isPresent()) {
                 List<Reservation> reservationsHistory = reservationRepo.findAllByBookIdAndDeletedFalse(bookDetails.get());
-                if (type.equals("list"))
-                    historyData = reservationsHistory.toString();
+                if (type.equals("json"))
+                    historyData = reservationsHistory;
                 else
                     historyData = ReservationXmlConverter.convertListToXml(reservationsHistory);
             }

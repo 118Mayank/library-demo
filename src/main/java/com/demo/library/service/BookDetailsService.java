@@ -70,7 +70,7 @@ public class BookDetailsService {
             responseDTO = new ResponseDTO(HttpStatus.OK, LocalDateTime.now(), bookDetails.get(), ConstantMessage.NewEntry + bookDetails.get().getId(), request.getRequestURI());
             bdLogger.info("New user generated- {}", bookDetails.get());
         } else
-            responseDTO = new ResponseDTO(HttpStatus.OK, LocalDateTime.now(), ConstantMessage.BookExists, request.getRequestURI());
+            responseDTO = new ResponseDTO(HttpStatus.OK, LocalDateTime.now(), ConstantMessage.NotFound, request.getRequestURI());
         return responseDTO;
     }
 

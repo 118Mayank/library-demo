@@ -13,13 +13,13 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ResponseDTO {
-    private LocalDateTime timestamp;
     private HttpStatus status;
-    private String error;
+    private LocalDateTime timestamp;
     private Object message;
-    private String path;
     private Object data;
+    private String path;
 
+    private String error;
     public ResponseDTO(LocalDateTime timestamp, HttpStatus status, String error, Object message, String path) {
         this.timestamp = timestamp;
         this.status = status;
