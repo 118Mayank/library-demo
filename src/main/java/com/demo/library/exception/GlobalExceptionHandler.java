@@ -39,7 +39,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException.class)
     public ResponseDTO handleNotFoundException(NotFoundException ex, HttpServletRequest request) {
-        return new ResponseDTO(LocalDateTime.now(), HttpStatus.BAD_REQUEST, "API not found", Collections.emptyList(), request.getRequestURI());
+        return new ResponseDTO(LocalDateTime.now(), HttpStatus.NOT_FOUND, "API not found", Collections.emptyList(), request.getRequestURI());
     }
 
     @ExceptionHandler(Exception.class)
